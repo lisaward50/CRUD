@@ -2,6 +2,7 @@ const express        = require("express");
 const app            = express();
 const bodyParser     = require("body-parser");
 const mongoose       = require("mongoose");
+const methodOverride = require("method-override");
 const Whisky         = require("./models/whisky");
 const resetDatabase  = require("./reset");
 const PORT = process.env.PORT || 3000;
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 mongoose.connect("mongodb://localhost:27017/whisky", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 
 //resetDatabase();
 
@@ -27,17 +29,6 @@ app.get("/whiskies", function(req, res){
   });
 });
 
-//SHOW ROUTE
-app.get("/whiskies/:id", function(req, res){
-  Whisky.findById(req.params.id, function(err, chosenWhisky){
-    if(err){
-      console.log(err);
-    } else {
-      res.render("show", {whisky: chosenWhisky});
-    }
-  });
-});
-
 //NEW ROUTE
 app.get("/whiskies/new", function(req, res){
   res.render("new");
@@ -45,14 +36,31 @@ app.get("/whiskies/new", function(req, res){
 
 //CREATE ROUTE
 app.post("/whiskies", function(req, res){
-  const name = req.body.name;
-  const type = req.body.type;
-  const description = req.body.description;
-  const image = req.body.image;
-  const newWhisky = {name: name, image: image, type: type, description: description};
-  Whisky.create(newWhisky, function(err, newlyCreatedWhisky){
+  Whisky.create(req.body.whisky, function(err, newWhisky){
     if(err){
-      console.log(err);
+      res.render("new");
+    } else {
+      res.redirect("/whiskies");
+    }
+  });
+});
+
+//SHOW ROUTE
+app.get("/whiskies/:id", function(req, res){
+  Whisky.findById(req.params.id, function(err, chosenWhisky){
+    if(err){
+      res.redirect("/whiskies");
+    } else {
+      res.render("show", {whisky: chosenWhisky});
+    }
+  });
+});
+
+//DESTROY ROUTE
+app.delete("/whiskies/:id", function(req, res){
+  Whisky.findByIdAndRemove(req.params.id, function(err){
+    if(err){
+      res.redirect("/whiskies");
     } else {
       res.redirect("/whiskies");
     }

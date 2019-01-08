@@ -5,4 +5,9 @@
   <h3><%= whisky.name %></h4>
   <h3><%= whisky.type %></h4>
   <h3><%= whisky.description %></h4>
+  <form action="/whiskies/<%= whisky._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+  <form>
 </div>
+
+<a href="/whiskies">Return to list</a>
