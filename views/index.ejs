@@ -1,1 +1,14 @@
 <h1>Index Page</h1>
+
+<div>
+  <% whiskies.forEach(function(whisky) { %>
+    <div>
+      <img src="<%= whisky.image %>">
+      <h3><%= whisky.name %></h4>
+      <h3><%= whisky.type %></h4>
+      <a href="/whiskies/<%= whisky._id %>">View More Details</a>
+    </div>
+  <% }); %>
+</div>
+
+<a href="/whiskies/new">Add New Whisky</a>
