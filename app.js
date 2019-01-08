@@ -56,6 +56,28 @@ app.get("/whiskies/:id", function(req, res){
   });
 });
 
+//EDIT ROUTE
+app.get("/whiskies/:id/edit", function(req, res) {
+  Whisky.findById(req.params.id, function(err, chosenWhisky){
+    //
+    if(err){
+      res.redirect("/whiskies");
+    } else {
+      res.render("edit", {whisky: chosenWhisky});
+    }
+  })
+});
+
+//UPDATE ROUTE
+app.put("/whiskies/:id", function(req, res) {
+  Whisky.findByIdAndUpdate(req.params.id, req.body.whisky, function(err, updatedWhisky){
+    if(err){
+      res.redirect("/whiskies");
+    } else {
+      res.redirect("/whiskies/" + req.params.id);
+    }
+  });
+});
 //DESTROY ROUTE
 app.delete("/whiskies/:id", function(req, res){
   Whisky.findByIdAndRemove(req.params.id, function(err){

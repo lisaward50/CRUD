@@ -1,0 +1,11 @@
+<h1>Edit <%= whisky.name %></h1>
+
+<form action="/whiskies/<%= whisky._id %>?_method=PUT" method="POST">
+  <input type="text" name="whisky[name]" value="<%= whisky.name %>">
+  <input type="text" name="whisky[image]" value="<%= whisky.image %>">
+  <input type="text" name="whisky[type]" value="<%= whisky.type %>">
+  <input type="text" name="whisky[description]" value="<%= whisky.description %>">
+  <button>Submit</button>
+</form>
+
+<a href="/whiskies">Return to list</a>
