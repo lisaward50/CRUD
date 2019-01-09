@@ -1,3 +1,28 @@
+body {
+  background: black;
+  color: white;
+}
+
+#landing-message {
+  padding-top: 40vh;
+}
+
+.main {
+  margin-top: 50px;
+}
+
+.bottle-box {
+  background: white;
+  width: 150px;
+  height: 200px;
+}
+
 .inline-button {
   display: inline;
 }
+
+.navbar-brand {
+  color: white;
+}
+
+
