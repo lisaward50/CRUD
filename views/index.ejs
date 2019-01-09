@@ -1,14 +1,23 @@
-<h1>Index Page</h1>
+<% include ./partials/header %>
 
-<div>
-  <% whiskies.forEach(function(whisky) { %>
-    <div>
-      <img src="<%= whisky.image %>">
-      <h3><%= whisky.name %></h4>
-      <h3><%= whisky.type %></h4>
-      <a href="/whiskies/<%= whisky._id %>">View More Details</a>
-    </div>
-  <% }); %>
+<div class="container">
+  <br/>
+  <h1>Index Page</h1>
+  <br/>
+  <div class="row">
+    <% whiskies.forEach(function(whisky) { %>
+      <div className="col-sm-6 col-lg-4 mb-3">
+        <div class="card">
+          <img class="card-img-top px-5 py-1" src="<%= whisky.image %>"/>
+          <h3 class="card-title"><%= whisky.name %></h4>
+          <h3 class="card-text"><%= whisky.type %></h4>
+          <a class="btn btn-sm btn-outline-primary" href="/whiskies/<%= whisky._id %>">View More Details</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+  <br/>
+  <a class="btn btn-sm btn-outline-info inline-button" href="/whiskies/new">Add New Whisky</a>
 </div>
 
-<a href="/whiskies/new">Add New Whisky</a>
+<% include ./partials/footer %>

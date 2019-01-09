@@ -1,14 +1,27 @@
-<h1>Show Page</h1>
+<% include ./partials/header %>
 
-<div>
-  <img src="<%= whisky.image %>">
-  <h3><%= whisky.name %></h4>
-  <h3><%= whisky.type %></h4>
-  <h3><%= whisky.description %></h4>
-  <a href="/whiskies/<%= whisky._id %>/edit">Edit</a>
-  <form action="/whiskies/<%= whisky._id %>?_method=DELETE" method="POST">
-    <button>Delete</button>
-  <form>
+<div class="container">
+  <br/>
+  <div class="row">
+    <div class="col-md-3">
+     <img src="<%= whisky.image %>"/>
+    </div>
+    <div class="col-md-9">
+      <h1><%= whisky.name %></h1>
+      <br/>
+      <h4>Type: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= whisky.type %></h4>
+      <h4>Description: &nbsp; <em><%= whisky.description %></em></h4>
+      <br/>
+      <a class="btn btn-sm btn-outline-warning" href="/whiskies/<%= whisky._id %>/edit">Edit</a>
+      <form class="inline-button" action="/whiskies/<%= whisky._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-sm btn-outline-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+  <br/>
+  <div class="row pl-2">
+    <a class="btn btn-sm btn-outline-primary" href="/whiskies">Return to list</a>
+  </div>
 </div>
 
-<a href="/whiskies">Return to list</a>
+<% include ./partials/footer %>
