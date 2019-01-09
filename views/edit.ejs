@@ -5,10 +5,24 @@
   <h1>Edit <%= whisky.name %></h1>
   <br/>
   <form action="/whiskies/<%= whisky._id %>?_method=PUT" method="POST">
-    <input type="text" name="whisky[name]" value="<%= whisky.name %>">
-    <input type="text" name="whisky[image]" value="<%= whisky.image %>">
-    <input type="text" name="whisky[type]" value="<%= whisky.type %>">
-    <input type="text" name="whisky[description]" value="<%= whisky.description %>">
+    <div class="form-group">
+      <input class="form-control" type="text" name="whisky[name]" value="<%= whisky.name %>">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="whisky[image]" value="<%= whisky.image %>">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="whisky[origin]" value="<%= whisky.origin %>">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="whisky[type]" value="<%= whisky.type %>">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="whisky[summary]" value="<%= whisky.summary %>">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="whisky[description]" value="<%= whisky.description %>">
+    </div>
     <button class="btn btn-sm btn-outline-info">Submit</button>
   </form>
   <br/>

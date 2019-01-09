@@ -5,6 +5,7 @@ const mongoose       = require("mongoose");
 const methodOverride = require("method-override");
 const Whisky         = require("./models/whisky");
 const resetDatabase  = require("./reset");
+const seedDatabase  = require("./seed");
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect("mongodb://localhost:27017/whisky", {useNewUrlParser: true});
@@ -14,6 +15,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
 //resetDatabase();
+//seedDatabase();
 
 app.get("/", function(req, res){
   res.render("home");
@@ -53,6 +55,7 @@ app.get("/whiskies/:id", function(req, res){
       res.redirect("/whiskies");
     } else {
       res.render("show", {whisky: chosenWhisky});
+      //res.send("show page");
     }
   });
 });

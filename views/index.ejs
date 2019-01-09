@@ -12,10 +12,10 @@
         <img class="bottle-box px-5 py-1" src="<%= whisky.image %>"/>
       </div>
       <div class="col-md-9">
-        <h1><%= whisky.name %></h1>
-        <br/>
-        <h4>Type: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= whisky.type %></h4>
-        <br/>
+        <h1 class="mb-3"><%= whisky.name %></h1>
+        <h5>Origin: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<%= whisky.origin %></h5>
+        <h5>Type: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<%= whisky.type %></h5>
+        <h5 class="mb-4">Summary: &nbsp; &nbsp; &nbsp; &nbsp;<%= whisky.summary %></h5>
         <a class="btn btn-sm btn-outline-primary" href="/whiskies/<%= whisky._id %>">View More Details</a>
     </div>
     <% }); %>
