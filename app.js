@@ -7,8 +7,9 @@ const Whisky         = require("./models/whisky");
 const resetDatabase  = require("./reset");
 const seedDatabase  = require("./seed");
 const PORT = process.env.PORT || 3000;
+const url = process.env.DATABASEURL || "mongodb://localhost:27017/whisky";
 
-mongoose.connect("mongodb://localhost:27017/whisky", {useNewUrlParser: true});
+mongoose.connect(url);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
