@@ -8,9 +8,9 @@
     </div>
     <div class="col-md-9">
       <h1 class"mb-4"><%= whisky.name %></h1>
-      <h5>Origin: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= whisky.origin %></h5>
+      <h5>Origin: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= whisky.origin %></h5>
       <h5>Type: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= whisky.type %></h5>
-      <h5 class="mb-4">Description: &nbsp; <em><%= whisky.description %></em></h5>
+      <h5 class="mb-4">Description: &nbsp; &nbsp; <em><%= whisky.description %></em></h5>
       <a class="btn btn-sm btn-outline-warning" href="/whiskies/<%= whisky._id %>/edit">Edit</a>
       <form class="inline-button" action="/whiskies/<%= whisky._id %>?_method=DELETE" method="POST">
         <button class="btn btn-sm btn-outline-danger">Delete</button>
