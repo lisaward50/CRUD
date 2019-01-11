@@ -24,7 +24,7 @@ body {
   height: 180px;
 }
 
-.inline-button {
+.inline, .inline-button {
   display: inline;
 }
 
