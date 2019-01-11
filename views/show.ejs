@@ -4,22 +4,23 @@
   <br/>
   <div class="row">
     <div class="col-md-3">
-     <img class="bottle-box px-5 py-1" src="<%= whisky.image %>"/>
+     <img class="bottle-box px-5 py-1 img-thumbnail" src="<%= whisky.image %>"/>
     </div>
     <div class="col-md-9">
-      <h1 class"mb-4"><%= whisky.name %></h1>
+      <h2 class"mt-2 mb-5"><%= whisky.name %></h2>
       <h5>Origin: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= whisky.origin %></h5>
       <h5>Type: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <%= whisky.type %></h5>
-      <h5 class="mb-4">Description: &nbsp; &nbsp; <em><%= whisky.description %></em></h5>
+      <h5 class="mb-5">Description: &nbsp; &nbsp; <em><%= whisky.description %></em></h5>
       <a class="btn btn-sm btn-outline-warning" href="/whiskies/<%= whisky._id %>/edit">Edit</a>
       <form class="inline-button" action="/whiskies/<%= whisky._id %>?_method=DELETE" method="POST">
         <button class="btn btn-sm btn-outline-danger">Delete</button>
       </form>
+      <a class="btn btn-sm btn-outline-primary" href="/whiskies">Return to list</a>
     </div>
   </div>
   <br/>
   <div class="row pl-2">
-    <a class="btn btn-sm btn-outline-primary" href="/whiskies">Return to list</a>
+
   </div>
 </div>
 
